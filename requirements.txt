@@ -1,0 +1,11 @@
+numpy==1.26.4
+fastapi==0.111.1
+uvicorn==0.30.3
+gunicorn==22.0.0
+timm==1.0.3
+pillow==10.2.0
+pydantic==2.8.2
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
+torchvision==0.17.2
