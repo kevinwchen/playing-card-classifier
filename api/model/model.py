@@ -122,4 +122,5 @@ def get_prediction(image_bytes):
     image_tensor = transform_image(image_bytes).unsqueeze(0)
     output = model(image_tensor)
     pred = torch.argmax(output, dim=1)
-    return labels[pred.item()]
+    prob = torch.softmax(output, dim=1)
+    return labels[pred.item()], prob.max().item()
