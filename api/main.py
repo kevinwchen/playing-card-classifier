@@ -8,7 +8,7 @@ app = FastAPI()
 # List of allowed origins
 origins = [
     "http://localhost:3000",  # for local testing
-    "https://playing-card-classifier.vercel.app/",  # for prod
+    "https://playing-card-classifier.vercel.app",  # for prod
 ]
 
 app.add_middleware(
