@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function Home() {
-  const url = "http://127.0.0.1:8000/predict/";
+  const url = "https://card-classifier.kevinc.xyz/predict/";
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [prediction, setPrediction] = useState<string | null>(null);
   const [probability, setProbability] = useState<string | null>(null);
