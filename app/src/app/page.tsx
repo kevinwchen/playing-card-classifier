@@ -1,16 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  const url = "https://card-classifier.kevinc.xyz/predict/";
+  // Use environment variable for API URL, fallback to production URL
+  const apiBaseUrl =
+    process.env.NEXT_PUBLIC_API_URL || "https://card-classifier.kevinc.xyz";
+  const url = `${apiBaseUrl}/predict/`;
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [prediction, setPrediction] = useState<string | null>(null);
   const [probability, setProbability] = useState<string | null>(null);
+
+  // Cleanup preview URL on component unmount
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     setSelectedFile(file || null);
+
+    // Clean up previous preview URL to prevent memory leaks
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+    }
+
+    // Create preview URL for the new file
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setPreviewUrl(url);
+    } else {
+      setPreviewUrl(null);
+    }
   };
 
   const handleUpload = async () => {
@@ -47,7 +73,24 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center min-h-screen">
       <div className="text-3xl mb-8">Card Classifier App</div>
       <div>Upload a picture of a playing card:</div>
-      <input type="file" onChange={handleFileChange} className="border mb-4" />
+      <input
+        type="file"
+        onChange={handleFileChange}
+        className="border mb-4"
+        accept="image/*"
+      />
+
+      {/* Image Preview */}
+      {previewUrl && (
+        <div className="mb-4">
+          <img
+            src={previewUrl}
+            alt="Preview of uploaded card"
+            className="max-w-sm max-h-80 object-contain border rounded shadow-md"
+          />
+        </div>
+      )}
+
       <button
         onClick={handleUpload}
         className="px-4 py-2 bg-blue-500 text-white rounded"
