@@ -96,7 +96,7 @@ curl -X POST "http://localhost:8000/predict/" \
 
 ### Model Specifications
 
-- **Model File**: `pytorch_playing_cards_model.pth`
+- **Model File**: `pytorch_playing_cards_model-0.1.0.pth`
 - **Classes**: 53 card types (ace through king for all suits + joker)
 - **Input Processing**: 128x128 RGB images
 - **Inference Time**: ~25ms per prediction
@@ -135,7 +135,7 @@ playing-card-classifier/
 │   ├── main.py                      # FastAPI application
 │   ├── model/
 │   │   ├── model.py                 # Model loading and inference
-│   │   └── pytorch_playing_cards_model.pth
+│   │   └── pytorch_playing_cards_model-0.1.0.pth
 │   └── requirements.txt             # Python dependencies
 ├── app/
 │   ├── src/app/
