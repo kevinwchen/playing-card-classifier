@@ -21,8 +21,6 @@ This project demonstrates an end-to-end machine learning pipeline for computer v
 The model is trained on the [Cards Image Dataset](https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification) containing:
 
 - **7,624 training images** across 53 classes
-- **265 validation images** for model tuning
-- **265 test images** for final evaluation
 - **Image size**: 224x224 pixels, resized to 128x128 for training
 
 ### Model Architecture
@@ -44,12 +42,12 @@ The model is trained on the [Cards Image Dataset](https://www.kaggle.com/dataset
 
 ### Training Configuration
 
-- **Optimizer**: Adam with learning rate scheduling
+- **Optimiser**: Adam with learning rate scheduling
 - **Loss Function**: CrossEntropyLoss
 - **Batch Size**: 32
 - **Epochs**: 5
 - **Input Size**: 128x128 pixels
-- **Data Augmentation**: Resize and normalization transforms
+- **Data Augmentation**: Resize and normalisation transforms
 
 ### Training Results
 
@@ -98,7 +96,7 @@ curl -X POST "http://localhost:8000/predict/" \
 
 ### Model Specifications
 
-- **Model File**: `pytorch_playing_cards_model-0.1.0.pth`
+- **Model File**: `pytorch_playing_cards_model.pth`
 - **Classes**: 53 card types (ace through king for all suits + joker)
 - **Input Processing**: 128x128 RGB images
 - **Inference Time**: ~25ms per prediction
@@ -123,7 +121,7 @@ A modern, responsive web application built with:
 - **Live Preview**: Immediate visual feedback
 - **Prediction Display**: Clear card name and confidence percentage
 - **Error Handling**: Graceful error messages and validation
-- **Performance**: Optimized bundle size and fast loading
+- **Performance**: Optimised bundle size and fast loading
 
 ## 📁 Project Structure
 
@@ -137,7 +135,7 @@ playing-card-classifier/
 │   ├── main.py                      # FastAPI application
 │   ├── model/
 │   │   ├── model.py                 # Model loading and inference
-│   │   └── pytorch_playing_cards_model-0.1.0.pth
+│   │   └── pytorch_playing_cards_model.pth
 │   └── requirements.txt             # Python dependencies
 ├── app/
 │   ├── src/app/
@@ -207,10 +205,8 @@ The model demonstrates excellent performance across different card types (note t
 
 ### Model Performance
 
-- **Training Accuracy**: 95.1%
-- **Validation Accuracy**: 94.8%
 - **Test Accuracy**: 94.3%
-- **Model Size**: 15.7 MB
+- **Model Size**: 20.7 MB
 - **Inference Speed**: ~50ms per image
 
 ### Technology Stack
