@@ -2,6 +2,8 @@
 
 A complete machine learning project that classifies playing cards using deep learning, featuring model training in PyTorch, a FastAPI backend, and a modern React frontend.
 
+![Six of Diamonds Prediction](images/6-of-diamonds-predict.png)
+
 ## 🎯 Project Overview
 
 This project demonstrates an end-to-end machine learning pipeline for computer vision, specifically designed to classify all 53 types of playing cards (52 standard cards + joker). The system achieves **94.3% accuracy** on test data using a fine-tuned EfficientNet-B0 model.
@@ -187,19 +189,19 @@ npm run dev
 
 The model demonstrates excellent performance across different card types (note that the images used for training have been cropped to only include the playing card):
 
-### Six of Diamonds
-
-**Prediction**: six of diamonds  
-**Confidence**: 99.2%
-
-![Six of Diamonds Prediction](images/6-of-diamonds-predict.png)
-
 ### King of Hearts
 
-**Prediction**: king of hearts  
+**Prediction**: king of hearts
 **Confidence**: 97.7%
 
 ![King of Hearts Prediction](images/king-of-hearts-predict.png)
+
+### Queen of Spades
+
+**Prediction**: queen of spades
+**Confidence**: 89.7%
+
+![King of Hearts Prediction](images/queen-of-spades-predict.png)
 
 ## 🔬 Technical Details
 
