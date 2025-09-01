@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  // Use environment variable for API URL, fallback to production URL
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL;
   const url = `${apiBaseUrl}/predict/`;
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
